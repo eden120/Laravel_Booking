@@ -1,0 +1,31 @@
+#results-area {
+	display: none;
+	background-color: #FFF;
+}
+
+/* Fallback to show the area if user has JS shut off but I think
+no-js will cause issues in more places than this. But just in case for the sake
+of progressive enhancement. */
+.no-js #results-area {
+	display: block; 
+}
+
+#results-area-parking-product {
+	padding: 0 0 @padding-jumbo 0;
+	text-align: center;
+}
+
+
+#results-area-addons {
+	padding: 0 0 @padding-jumbo 0;
+}
+
+#results-area-addons-heading {
+	text-align: center;
+}
+
+#results-area-checkout {
+	padding: @padding-jumbo;
+	text-align: center;
+	border-top: 4px solid @brand-color-2;
+}

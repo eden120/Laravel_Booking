@@ -1,0 +1,267 @@
+
+/* Base */
+.button,
+a.button:link,
+a.button:visited {
+	.inline-block;
+	.font-default;
+	.button-radius;
+	.transition-fast;
+	padding: @font-size-default/2 @font-size-default;
+	color: @brand-color-1;
+	text-decoration: none;
+	border: 1px solid @brand-color-1;
+	background-color: none;
+	
+	&:hover,
+	&:active {
+		background-color: @brand-color-1-hover;
+		color: @inverse-text;
+	}
+	
+	/* Sizes */
+	&.button-large {
+		.font-large;
+		padding: @font-size-large/2 @font-size-large;
+	}
+
+	&.button-small {
+		.font-small;
+		padding: @font-size-small/2 @font-size-small;
+	}
+
+	&.button-mini {
+		.font-mini;
+		padding: @font-size-mini/2 @font-size-mini;
+	}
+	
+	/* Colors */
+	&.button-brand-color-1 {
+		color: @brand-color-1;
+		border: 1px solid @brand-color-1;
+		&:hover,
+		&:active {
+			background-color: @brand-color-1-hover;
+			color: @inverse-text;
+		}
+	}
+	
+	&.button-brand-color-2 {
+		color: @brand-color-2;
+		border: 1px solid @brand-color-2;
+		&:hover,
+		&:active {
+			background-color: @brand-color-2-hover;
+			color: @inverse-text;
+		}
+	}
+	
+	&.button-danger {
+		color: @danger;
+		border: 1px solid @danger;
+		&:hover,
+		&:active {
+			background-color: @danger-hover;
+			color: @inverse-text;
+		}	
+	}
+	
+	&.button-success {
+		color: @success;
+		border: 1px solid @success;
+		&:hover,
+		&:active {
+			background-color: @success-hover;
+			color: @inverse-text;
+		}	
+	}
+	
+	&.button-secondary {
+		color: @secondary;
+		border: 1px solid @secondary;
+		&:hover,
+		&:active {
+			background-color: @secondary-hover;
+			color: @inverse-text;
+		}	
+	}
+	
+	&.button-auxiliary {
+		color: @auxiliary;
+		border: 1px solid @auxiliary;
+		&:hover,
+		&:active {
+			background-color: @auxiliary-hover;
+			color: @inverse-text;
+		}	
+	}
+	
+	&.button-inverse {
+		color: @inverse-text;
+		border: 1px solid @inverse-text;
+		&:hover,
+		&:active {
+			background-color: fade(@inverse-text, 10%);
+			color: @inverse-text;
+		}	
+	}
+	
+	/* Button 2 Lines */
+	&.button-2-line {
+		
+		text-align: left;
+		
+		&.button-2-line-icon {
+			padding-left: 42px;
+			position: relative;
+			
+			i.fa {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 42px;
+				text-align: center;
+				font-size: 1em;
+				line-height: 32px;
+				height: 32px;
+				margin-top: -16px;
+			}
+			
+			&.button-large {
+				padding-left: 64px;
+				i.fa {
+					width: 64px;
+					font-size: 1.4em;
+				}
+			}
+			
+			&.button-small {
+				i.fa {
+					font-size: 1.7em;
+				}
+			}
+			
+			&.button-mini {
+				i.fa {
+					font-size: 1.5em;
+				}
+			}
+			
+		}
+		
+		.button-line-1 {
+			font-size: 1em;
+			line-height: 1em;
+		}
+		
+		.button-line-2 {
+			font-size: 2em;
+			line-height: 1em;
+			font-family: @bold-font;
+		}
+		
+		
+	}
+	
+	/* Button Solid */
+	&.button-solid {
+		color: @inverse-text;
+		background-color: @brand-color-1;
+		border: none;
+		
+		&:hover,
+		&:active {
+			background-color: @brand-color-1-hover;
+			color: @inverse-text;
+		}
+		
+		/* Colors */
+		
+		&.button-brand-color-1 {
+			background-color: @brand-color-1;
+			border: none;
+			color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: @brand-color-1-hover;
+				color: @inverse-text;
+			}
+
+		}
+		
+		&.button-brand-color-2 {
+			background-color: @brand-color-2;
+			border: none;
+			color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: @brand-color-2-hover;
+				color: @inverse-text;
+			}
+		}
+		
+		&.button-danger {
+			background-color: @danger;
+			border: none;
+			color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: @danger-hover;
+				color: @inverse-text;
+			}
+		}
+		
+		&.button-success {
+			background-color: @success;
+			border: none;
+			color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: @success-hover;
+				color: @inverse-text;
+			}
+		}
+		
+		&.button-secondary {
+			background-color: @secondary;
+			border: none;
+			color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: @secondary-hover;
+				color: @inverse-text;
+			}
+		}
+		
+		&.button-auxiliary {
+			background-color: @auxiliary;
+			border: none;
+			color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: @auxiliary-hover;
+				color: @inverse-text;
+			}
+		}
+		
+		&.button-inverse {
+			border: none;
+			color: @default-text;
+			background-color: @inverse-text;
+			&:hover,
+			&:active {
+				background-color: fade(@inverse-text, 10%);
+			}
+		}
+		
+	}
+	
+	&.button-block {
+		display: block;
+	}
+	
+	
+}
+
+
+

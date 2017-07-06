@@ -1,0 +1,206 @@
+#basic-booking-form {
+
+	.bbf-col-1,
+	.bbf-col-2 {
+		.inline-block;
+		vertical-align: middle;
+		margin: 0 -4px 0 0;
+		width: 30%;
+		
+		@media screen and (max-width: 1200px) {
+			width: 40%;
+		}
+		
+	}
+	
+	.bbf-col-3 {
+		width: 20%;
+		.inline-block;
+		vertical-align: middle;
+		margin: 0 -4px 0 0;
+	}
+	
+	.bbf-col-4 {
+		width: 20%;
+		.inline-block;
+		vertical-align: middle;
+		margin: 0 -4px 0 0;
+		
+		@media screen and (max-width: 1200px) {
+			width: 100%;
+			max-width: 320px;
+			margin: @margin-default auto 0 auto;
+			display: block;
+		}
+		
+	}
+	
+	.bbf-col-1,
+	.bbf-col-2 {
+		border-right: 1px dotted #FFF;
+		
+		@media screen and (max-width: 960px){
+			width: 50%;
+		}
+		@media screen and (max-width: 599px){
+			width: 100%;
+		}
+		
+	}
+	
+	.bbf-col-1 {
+		@media screen and (max-width: 599px){
+			border-right: none;
+		}
+	}
+	
+	.bbf-col-2 {
+		@media screen and (max-width: 960px){
+			border-right: none;
+		}
+	}
+	
+	.bbf-col-3,
+	.bbf-col-4 {
+		@media screen and (max-width: 960px){
+			width: 50%;
+			max-width: 9999px;
+			.inline-block;
+			vertical-align: middle;
+			margin: 0 -4px 0 0;
+		}
+		@media screen and (max-width: 599px){
+			width: 100%;
+			display: block;
+		}
+	}
+	
+	.fi-group-icon {
+		color: @inverse-text;
+	}
+	
+	input {
+		color: @inverse-text;
+	}
+	
+	.bbf-column-label {
+		color: @inverse-text;
+		font-size: @font-size-large;
+		line-height: @line-height-large;
+	}
+	
+	.bbf-promocode-field-wrap {
+		width: 100%;
+		.inline-block;
+		vertical-align: middle;
+		margin-right: -4px;
+	}
+
+	.bbf-date-field-wrap {
+		width: 60%;
+		.inline-block;
+		vertical-align: middle;
+		margin-right: -4px;
+		@media screen and (max-width: 599px){
+			width: 50%;
+		}
+	}
+	
+	.bbf-time-field-wrap {
+		width: 40%;
+		.inline-block;
+		vertical-align: middle;
+		margin-right: -4px;
+		@media screen and (max-width: 599px){
+			width: 50%;
+		}
+	}
+	
+	input.bbf-field,
+	select.bbf-field {
+		display: block;
+		width: 100%;
+		font-size: @font-size-default;
+		line-height: @line-height-default;
+		color: @inverse-text;
+		font-family: @bold-font;		
+		-moz-appearance: none;
+		
+		@media screen and (max-width: 599px) {
+			font-size: @font-size-small;
+		}
+		
+		option {
+			color: @default-text;
+			font-size: @font-size-small;
+			line-height: @line-height-small;
+			font-family: @default-font;	
+			background-color: #FFF;
+		}
+	}
+	
+	.bbf-col-4 {
+		button#bbf-submit-button {
+			border-radius: 0;
+			-moz-border-radius: 0;
+			-webkit-border-radius: 0;
+			-o-border-radius: 0;
+			display: block;
+			width: 100%;
+			text-align: center;
+			height: 3.5em;
+		}
+	}
+	
+
+	::-webkit-validation-bubble-message {
+			padding: @padding-tight;
+	}
+	
+
+	::-webkit-input-placeholder {
+    color: #FFF;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+
+	::-moz-placeholder {
+			color: #FFF;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+
+	::-ms-placeholder {
+			color: #FFF;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+
+	::placeholder {
+		color: #FFF;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+	
+	
+	// Touch Screen swapped out fields...
+	.bbf-touch-col-1 {
+		.inline-block;
+		margin-right: -4px;
+		width: 100%;
+		vertical-align: middle;
+	}
+	
+	.bbf-touch-col-2 {
+		.inline-block;
+		margin-right: -4px;
+		width: 100%;
+		vertical-align: middle;
+	}
+
+
+}

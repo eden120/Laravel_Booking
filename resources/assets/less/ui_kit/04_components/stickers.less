@@ -1,0 +1,46 @@
+.sticker {
+	.inline-block;
+	.sticker-radius;
+	vertical-align: middle;
+	background-color: @grey-dark;
+	color: @inverse-text;
+	white-space: nowrap;
+	text-align: center;
+	font-size: @font-size-small;
+	line-height: 1em;
+	min-width: @sticker-border-radius;
+	padding: @padding-tight @sticker-border-radius/2;
+	
+	
+	/* Colors */
+	
+	&.sticker-brand-color-1 {
+		background-color: @brand-color-1;
+	}
+	
+	&.sticker-brand-color-2 {
+		background-color: @brand-color-2;
+	}
+	
+	&.sticker-danger {
+		background-color: @danger;
+	}
+	
+	&.sticker-success {
+		background-color: @success;
+	}
+	
+	&.sticker-secondary {
+		background-color: @secondary;
+	}
+	
+	&.sticker-auxiliary {
+		background-color: @auxiliary;
+	}
+	
+	&.sticker-inverse {
+		background-color: @inverse-text;
+		color: @default-text;
+	}
+	
+}

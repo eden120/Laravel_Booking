@@ -1,0 +1,32 @@
+/*	=========================================== *\
+		PAGE HEADING
+\*	===========================================	*/
+header#page-heading {
+	padding: @padding-default;
+	background-color: @brand-color-1;
+}
+
+#page-heading-logo {
+	.inline-block;
+	width: 20%;
+	margin-right: -4px;
+	font-size: 96px;
+	line-height: 1em;
+	vertical-align: middle;
+	text-shadow: 0 1px fade(#000, 20%);
+	
+	@media screen and (max-width: 1068px) {
+		font-size: 3.5em;
+	}
+	@media screen and (max-width: 599px){
+		font-size: 2.5em;
+	}
+}
+
+#page-heading-menu {
+	.inline-block;
+	width: 80%;
+	margin-right: -4px;
+	text-align: right;
+	vertical-align: middle;
+}

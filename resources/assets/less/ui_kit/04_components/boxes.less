@@ -1,0 +1,81 @@
+.box {
+	padding: @padding-default;
+	background-color: @grey-extra-light;
+	color: @default-text;
+	margin-bottom: @margin-default;
+	
+	/* Paddings */
+	&.box-jumbo {
+		padding: @padding-jumbo;
+	}
+	
+	&.box-large {
+		padding: @padding-large;
+	}
+	
+	&.box-cozy {
+		padding: @padding-cozy;
+	}
+	
+	&.box-tight {
+		padding: @padding-tight;
+	}
+	
+	&.box-nil {
+		padding: 0;
+	}
+	
+	/* Bottom Margin */
+	&.box-margin-cozy {
+		margin-bottom: @margin-cozy;
+	}
+	
+	&.box-margin-tight {
+		margin-bottom: @margin-tight;
+	}
+	
+	&.box-margin-nil {
+		margin-bottom: 0;
+	}
+	
+	/* Colors */
+	&.box-brand-color-1 {
+		background-color: @brand-color-1;
+		color: @inverse-text;
+	}
+	
+	&.box-brand-color-2 {
+		background-color: @brand-color-2;
+		color: @inverse-text;
+	}
+	
+	&.box-danger {
+		background-color: @danger;
+		color: @inverse-text;
+	}
+	
+	&.box-success {
+		background-color: @success;
+		color: @inverse-text;
+	}
+	
+	&.box-secondary {
+		background-color: @secondary;
+		color: @inverse-text;
+	}
+	
+	&.box-auxiliary {
+		background-color: @auxiliary;
+		color: @inverse-text;
+	}
+	
+	&.box-dark {
+		background-color: @grey-dark;
+		color: @inverse-text;
+	}
+	
+	*:last-child {
+		margin-bottom: 0;
+	}
+	
+}

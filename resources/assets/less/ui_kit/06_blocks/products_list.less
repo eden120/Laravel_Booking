@@ -1,0 +1,89 @@
+.product-item {
+
+	.frame {
+		position: relative;
+		padding-bottom: 96px;
+	}
+	
+	.product-item-graphic {
+		position: relative;
+		height: 180px;
+		margin-bottom: @margin-cozy;
+		
+		@media screen and (max-width: @grid-breakpoint){
+			height: 280px;
+		}
+		
+		.product-item-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			.background-cover;
+			background-position: 50% 50%;
+		}
+		
+	}
+	
+	.product-item-title {
+		margin-bottom: @margin-cozy;
+	}
+	
+	.product-item-desc {
+		font-size: @font-size-small;
+		line-height: @line-height-small;
+		margin-bottom: @margin-cozy;
+	}
+	
+	.product-item-fineprint {
+		font-size: @font-size-mini;
+		line-height: @line-height-mini;
+		color: @grey-medium;
+		margin-bottom: @margin-cozy;
+	}
+	
+	.product-item-pricing {
+		text-align: center;
+		padding: @padding-cozy;
+		
+		.product-item-base-price {
+			font-family: @bold-font;
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+			
+			&.product-item-on-sale {
+				.inline-block;
+				width: 50%;
+				margin-right: -4px;
+				vertical-align: middle;
+				font-family: @default-font;
+				color: @grey-medium;
+				text-decoration: line-through;
+			}
+			
+			
+		}
+		
+		.product-item-sale-price {
+			.inline-block;
+			width: 50%;
+			margin-right: -4px;
+			vertical-align: middle;
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+		}
+		
+	}
+	
+	.product-item-footing {
+		padding: @padding-cozy 0;
+		text-align: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		border-top: 1px solid @grey-extra-light
+	}
+
+}

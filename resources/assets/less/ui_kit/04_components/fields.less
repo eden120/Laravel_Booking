@@ -1,0 +1,75 @@
+select,
+textarea,
+input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"] {
+	.inline-block;
+	.field-radius;
+	.font-small;
+	.transition-fast;
+	width: 100%;
+	vertical-align: bottom;
+	padding: @font-size-small/2 0;
+	height: 3.34em;
+	border: none;
+	border-bottom: 1px solid @grey-light;
+	background: fade(@inverse-text, 10%);
+	-webkit-appearance: none;
+
+	&:focus {
+    outline: 0;
+		border-bottom: 1px solid @default-link;
+		
+		&:invalid {
+			border-bottom: 1px solid @danger;
+		}
+		
+		&:valid {
+			border-bottom: 1px solid @success;
+		}
+		
+	}
+		
+}
+
+input[type="submit"],
+button {
+	.button;
+	cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	width: auto;
+}
+
+textarea {
+	height: 8.0em;
+	font-family: @default-font;
+}
+
+select optgroup {
+	font-size: @font-size-small;
+	color: @grey-medium;
+}
+
+.required-field {
+	
+}
+
+
+::-webkit-validation-bubble-message {
+    padding: @padding-tight;
+}
+

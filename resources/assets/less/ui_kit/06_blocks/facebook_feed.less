@@ -1,0 +1,86 @@
+.fb-feed-item {
+	padding-left: 64px;
+	position: relative;
+	
+	a.fb-feed-icon:link,
+	a.fb-feed-icon:visited {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 48px;
+		height: 100%;
+		border-right: 1px solid @grey-medium;
+		text-align: center;
+		font-size: 22px;
+		line-height: 1em;
+		color: @grey-medium;
+		padding: @padding-cozy 0;
+		.transition-fast;
+		
+		&:hover,
+		&:active {
+			background-color: darken(@brand-color-2, 80%);
+		}
+		
+	}
+	
+}
+
+
+.fb-feed-message {
+	font-size: @font-size-small;
+	line-height: @line-height-small;
+}
+
+.fbfp-video {
+	width: 100%;
+	
+	video {
+		width: 100%;
+	}
+}
+
+a.fb-feed-link:link,
+a.fb-feed-link:visited {
+	padding: @padding-cozy;
+	border: 1px dotted @grey-medium;
+	display: block;
+	.transition-fast;
+	color: @inverse-link;
+	font-size: @font-size-small;
+	line-height: @line-height-small;
+	
+	&:hover,
+	&:active {
+		background-color: darken(@brand-color-2, 80%);
+	}
+	
+}
+
+.fb-feed-photo {
+	.inline-block;
+	width: 10%;
+	margin-right: -4px;
+	vertical-align: top;
+}
+
+.fb-feed-link-name {
+	width: 100%;
+	
+	&.fb-feed-has-photo {
+		.inline-block;
+		width: 90%;
+		margin-right: -4px;
+		vertical-align: top;
+		padding-left: @padding-cozy;
+	}
+	
+}
+
+.fb-feed-footing {
+	font-size: @font-size-mini;
+	line-height: @line-height-mini;
+	padding: @padding-cozy 0;
+	color: @grey-medium;
+	text-transform: uppercase;
+}

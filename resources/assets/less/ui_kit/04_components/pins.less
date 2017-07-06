@@ -1,0 +1,182 @@
+/* Vars */
+@pin-point-font-size: 18px;
+
+/* Style */
+.pin {
+	.pin-radius;
+	.inline-block;
+	vertical-align: middle;
+	background-color: @grey-dark;
+	color: @inverse-text;
+	white-space: nowrap;
+	text-align: center;
+	font-size: @font-size-small;
+	line-height: 1em;
+	min-width: @pin-border-radius;
+	padding: 0 @pin-border-radius/2;
+	position: relative;
+		
+	/* Pin Points Arrows */
+	&.pin-point-left {
+		margin-left: 4px;
+		&:after {
+			right: 100%;
+			top: 50%;
+			font-family: "FontAwesome";
+			content: "\f0d9";
+			color: @grey-dark;
+			position: absolute;
+			font-size: @pin-point-font-size;
+			line-height: 14px;
+			width: 5px;
+			height: 14px;
+			margin-top: -6px;
+			margin-right: -3px;
+		}
+	}
+	
+	&.pin-point-right {
+		margin-right: 4px;
+		&:after {
+			left: 100%;
+			top: 50%;
+			font-family: "FontAwesome";
+			content: "\f0da";
+			color: @grey-dark;
+			position: absolute;
+			font-size: @pin-point-font-size;
+			line-height: 14px;
+			width: 5px;
+			height: 14px;
+			margin-top: -6px;
+			margin-left: -5px;
+		}
+	}
+	
+	&.pin-point-up {
+		&:after {
+			left: 50%;
+			bottom: 100%;
+			font-family: "FontAwesome";
+			content: "\f0d8";
+			color: @grey-dark;
+			position: absolute;
+			font-size: @pin-point-font-size;
+			line-height: 5px;
+			width: 16px;
+			height: 5px;
+			margin-left: -8px;
+			margin-bottom: -1px;
+		}
+	}
+	
+	&.pin-point-down {
+		&:after {
+			left: 50%;
+			top: 100%;
+			font-family: "FontAwesome";
+			content: "\f0d7";
+			color: @grey-dark;
+			position: absolute;
+			font-size: @pin-point-font-size;
+			line-height: 5px;
+			width: 14px;
+			height: 5px;
+			margin-left: -7px;
+		}
+	}
+	
+	/* Colors */
+	&.pin-brand-color-1 {
+		background-color: @brand-color-1;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: @brand-color-1;
+			}
+		}
+	}
+	
+	&.pin-brand-color-2 {
+		background-color: @brand-color-2;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: @brand-color-2;
+			}
+		}
+	}
+	
+	&.pin-danger {
+		background-color: @danger;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: @danger;
+			}
+		}
+	}
+	
+	&.pin-success {
+		background-color: @success;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: @success;
+			}
+		}
+	}
+	
+	&.pin-secondary {
+		background-color: @secondary;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: @secondary;
+			}
+		}
+	}
+	
+	&.pin-auxiliary {
+		background-color: @auxiliary;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: @auxiliary;
+			}
+		}
+	}
+	
+	&.pin-inverse {
+		background-color: #FFF;
+		color: @default-text;
+		
+		&.pin-point-left,
+		&.pin-point-right,
+		&.pin-point-up,
+		&.pin-point-down {
+			&:after {
+				color: #FFF;
+			}
+		}
+	}
+
+}

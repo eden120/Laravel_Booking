@@ -1,0 +1,65 @@
+header#sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	background-color: fade(@grey-dark, 90%);
+	background-blend-mode: darken;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	visibility: hidden;
+	.transition-fast;	
+}
+
+#sticky-header-inner {
+
+}
+
+#sh-logo {
+	font-size: @font-size-large*2;
+	line-height: 1em;
+	.inline-block;
+	width: 86/1168*100%;
+	margin-right: -4px;
+	vertical-align: middle;
+}
+
+#sh-menu {
+	text-align: right;
+	.inline-block;
+	vertical-align: middle;
+	width: 1082/1168*100%;
+	margin-right: -4px;
+	
+	a:link {
+		.inline-block;
+		vertical-align: middle;
+	}
+	
+	#sticky-menu-trigger {
+		.inline-block;
+		vertical-align: middle;
+		margin: 0 -4px 0 @margin-default;
+		padding: 0 @padding-cozy;
+		text-align: center;
+		color: @inverse-link;
+		font-size: 8px;
+		line-height: 1em;
+		text-transform: uppercase;
+		
+		i.fa {
+			font-size: 24px;
+			line-height: 1em;
+			display: block;
+		}
+	}
+	
+	#sh-express-club-btn {
+		@media screen and (max-width: 960px){
+			display: none;
+		}
+	}
+	
+}

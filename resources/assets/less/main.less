@@ -1,0 +1,233 @@
+/* UI Kit */
+/** Vendor */
+@import (less) "../../vendor/css/sweetalert.css";
+
+/* Presets */
+@import "ui_kit/01_presets/reset";
+@import "ui_kit/01_presets/defaults";
+@import "ui_kit/01_presets/mixins";
+
+/* Structure */
+@import "ui_kit/02_structure/grid";
+
+/* Typography */
+@import "ui_kit/03_typography/fontAwesome";
+@import "ui_kit/03_typography/executive_logo_font";
+@import "ui_kit/03_typography/notoSans";
+@import "ui_kit/03_typography/roboto";
+@import "ui_kit/03_typography/typography";
+
+/* Components */
+@import "ui_kit/04_components/alerts";
+@import "ui_kit/04_components/buttons";
+@import "ui_kit/04_components/boxes";
+@import "ui_kit/04_components/fields";
+@import "ui_kit/04_components/frames";
+@import "ui_kit/04_components/pins";
+@import "ui_kit/04_components/stickers";
+
+/* Groupings */
+@import "ui_kit/05_groupings/forms_grid";
+@import "ui_kit/05_groupings/buttons_group";
+
+/* Blocks */
+@import "ui_kit/06_blocks/promo_boxes";
+@import "ui_kit/06_blocks/basic_booking_form";
+@import "ui_kit/06_blocks/doorways";
+@import "ui_kit/06_blocks/searching_widget";
+@import "ui_kit/06_blocks/shopper_approved_reviews";
+@import "ui_kit/06_blocks/panel_menu";
+@import "ui_kit/06_blocks/search_criteria";
+@import "ui_kit/06_blocks/travel_agent_signin";
+@import "ui_kit/06_blocks/products_list";
+@import "ui_kit/06_blocks/parking_products";
+@import "ui_kit/06_blocks/cart_contents";
+@import "ui_kit/06_blocks/facebook_feed";
+
+
+/* Build */
+@import "build/theme";
+
+@import "build/pages/index";
+@import "build/pages/style_guide";
+@import "build/pages/results";
+@import "build/pages/checkout";
+@import "build/pages/directions";
+
+@import "build/elements/header_menu";
+@import "build/elements/page_heading";
+@import "build/elements/sticky_header";
+@import "build/elements/footer";
+@import "build/elements/page_title";
+
+@import "build/plugins/inview";
+@import "build/plugins/jquery_datepicker";
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-container {
+    width: 400px;
+    margin: 0px auto;
+    //padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+}
+
+.modal-header {
+    border-bottom: 1px solid darkgrey;
+}
+
+.modal-header h4 {
+    padding:10px 10px 0px 10px;
+    span {
+        float: right;
+    }
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-default-button {
+    float: right;
+}
+
+.modal-enter, .modal-leave {
+    opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#slides {
+    display: none
+}
+
+#slides .slidesjs-navigation {
+    margin-top:3px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.slidesjs-stop, .slidesjs-play{
+    display:none !important;
+}
+
+#slides .slidesjs-previous {
+    margin-right: 5px;
+    float: left;
+}
+
+#slides .slidesjs-next {
+    margin-right: 5px;
+    float: left;
+}
+
+.slidesjs-pagination {
+    margin: 6px 0 0;
+    float: right;
+    list-style: none;
+}
+
+.slidesjs-pagination li {
+    float: left;
+    margin: 0 1px;
+}
+
+.slidesjs-pagination li a {
+    display: block;
+    width: 13px;
+    height: 0;
+    padding-top: 13px;
+    background-image: url(/assets/images/slides/pagination.png);
+    background-position: 0 0;
+    float: left;
+    overflow: hidden;
+}
+
+.slidesjs-pagination li a.active,
+.slidesjs-pagination li a:hover.active {
+    background-position: 0 -13px
+}
+
+.slidesjs-pagination li a:hover {
+    background-position: 0 -26px
+}
+
+#slides a:link,
+#slides a:visited {
+    color: #333
+}
+
+#slides a:hover,
+#slides a:active {
+    color: #9e2020
+}
+
+.navbar {
+    overflow: hidden
+}
+
+#slides {
+    display: none
+}
+
+.container {
+    margin: 0 auto
+}
+
+/* For tablets & smart phones */
+@media (max-width: 767px) {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .container {
+        width: auto
+    }
+}
+
+/* For smartphones */
+@media (max-width: 480px) {
+    .container {
+        width: auto
+    }
+}
+
+/* For smaller displays like laptops */
+@media (min-width: 768px) and (max-width: 979px) {
+    .container {
+        width: 724px
+    }
+}
+
+/* For larger displays */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px
+    }
+}
+
+.sweet-alert > fieldset {
+    display: none;
+}
