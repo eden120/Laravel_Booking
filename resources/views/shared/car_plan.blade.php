@@ -32,11 +32,39 @@
             </div>
             <div class="product-item-footing">
                 <div class="product-item-cart-action">
-                    <a href="#" @click.prevent="addCarCare({!! $plan->car_care_id !!})"
-                       class="product-item-add-to-cart button button-solid button-success">
-                        <i class="fa fa-plus"></i> Add to Cart</a>
+                    {{--<a href="#" @click.prevent="addCarCare({!! $plan->car_care_id !!})"--}}
+                       {{--class="product-item-add-to-cart button button-solid button-success">--}}
+                        {{--<i class="fa fa-plus"></i> Add to Cart</a> --}}
+                    <button type="button"   class="product-item-add-to-cart button button-solid button-success " data-ccid="{{$plan->car_care_id}}"> <i class="fa fa-plus"></i> Add to Cart</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="carCaremodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="home-booking-form" class="date_modal">
+                    <div id="home-booking-form-inner">
+                        <div id="home-booking-form-heading">
+                            {{--<h1 class="fit-text">Find BDL Parking Rates</h1>--}}
+                            {{--<p>Search for the best short stay &amp; long term Bradley Airport parking deals!</p>--}}
+                        </div>
+                        <div id="home-booking-form-wrap">
+                            @include('shared.basic_booking_form')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{--<div id="dialog" title="Dialog Title" style="display:none"> Some text</div>--}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+

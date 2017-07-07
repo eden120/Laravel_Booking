@@ -1,6 +1,6 @@
 @include('shared.errors')
 
-<form id="basic-booking-form" method="POST" action="{{ route('search.store') }}">
+<form id="basic-booking-form" class="basic-booking-form" method="POST" action="{{ route('search.store') }}">
 
     {{ csrf_field() }}
 
@@ -37,7 +37,7 @@
     </div>
 
     <div class="bbf-col-4">
-        <button id="bbf-submit-button" @click.prevent='showLoader()'><i class="fa fa-long-arrow-right"></i> Search Rates</button>
+        <button id="bbf-submit-button" @click.prevent='showLoader()'><i class="fa fa-long-arrow-right bbf-submit-button"></i> Search Rates</button>
     </div>
 
 </form>
