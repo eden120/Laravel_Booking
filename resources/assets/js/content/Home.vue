@@ -123,13 +123,13 @@
 
                 $(".loading").css('display', 'block');
 
-                let code = $('input[name=promoCode]').val()
+                let code = $('input[name=promo_code]').val();
 
                 if(code) {
-
                     this.$http.post('/promo', { code: code}).then((response) => {
                         $('#basic-booking-form').submit();
                     }, (response) => {
+                        console.log(response);
                         swal({
                             title: "Error!",
                             text: "Sorry this Promo Code is invalid!",

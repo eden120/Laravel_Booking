@@ -78,6 +78,70 @@
                     })
                     this.showLoading = false
                 })
+            },
+
+
+            showLoader() {
+                this.showLoading = true;
+
+                $(".loading").css('display', 'block');
+                $('#carCaremodal').modal("hide");
+
+                //
+                let code = $('input[name=promo_code]').val();
+
+                if(code) {
+                    this.$http.post('/promo', { code: code}).then((response) => {
+                        // $('#basic-booking-form').submit();
+                }, (response) => {
+                        swal({
+                            title: "Error!",
+                            text: "Sorry this Promo Code is invalid!",
+                            type: "error",
+                            timer: 2500,
+                            showConfirmButton: false
+                        })
+
+                        $(".loading").css('display', 'none');
+
+                        this.showLoading = false
+                        $('input[name=promo_code]').val('')
+                    })
+
+                } else {
+                    let code = $('input[name=promo_code]').val();
+                    let arrival_date = $('input[name=promo_code]').val();
+                    let return_date = $('input[name=promo_code]').val();
+                    let CCID = $('input[name=carcareID]').val();
+
+                        this.$http.post('/search/getCC', {code:code,arrival_date:arrival_date,return_date:return_date,ccId:CCID }).then((response) => {
+                            this.showLoading = false;
+        
+                            $(".loading").css('display', 'none');
+                            swal({
+                                title: "Success!",
+                                text: "Parking added to your basket!",
+                                type: "success",
+                                timer: 1500,
+                                showConfirmButton: false
+                            })
+
+                            window.location = '/cart';
+
+                    }, (response) => {
+                        this.showLoading = false;
+
+                        $(".loading").css('display', 'none');
+                        swal({
+                            title: "Error!",
+                            text: "Sorry no any result!",
+                            type: "error",
+                            timer: 2500,
+                            showConfirmButton: false
+                        })
+                    })
+                }
+
             }
 
 

@@ -47,6 +47,9 @@ Route::resource('search', 'SearchController', ['only' => [
     'store', 'update', 'show'
 ]]);
 
+Route::post('search/getCC', 'SearchController@getCC');
+
+
 Route::get('edit_reservation', ['as' => 'reservation.index', 'uses' => 'ReservationController@index']);
 Route::post('reservation/show', ['as' => 'reservation.show', 'uses' => 'ReservationController@show']);
 Route::post('reservation/update', ['as' => 'reservation.update', 'uses' => 'ReservationController@update']);

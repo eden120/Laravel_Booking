@@ -41,24 +41,8 @@ $(document).ready(function() {
     });
 
     $('.product-item-add-to-cart').on('click',function () {
-        window.ccid = $(this).data('ccid');
+        $('input[name=carcareID]').val($(this).data('ccid'));
        $('#carCaremodal').modal();
     });
-
-
-    $('.bbf-submit-button').on('click',function () {
-        $(this).preventDefault();
-    // var date = $('.basic-booking-form :input')
-    //     var values = {};
-    //     date.each(function() {
-    //         values[this.name] = $(this).val();
-    //
-    //     });
-        console.log('test');
-    });
-
-
-
-
 
 });

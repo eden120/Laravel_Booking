@@ -37,6 +37,7 @@
     <link rel="icon" href="favicon-32.png" sizes="32x32">
 
     <link rel="stylesheet" href="{{ elixir('css/main.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script>
         window.Laravel = {!!  json_encode(['csrfToken' => csrf_token()]) !!}
@@ -143,7 +144,7 @@
             </div>
         </footer>
 
-        <express-login v-if="showExpressModal" @close="showExpressModal = false"></express-login>
+        <express-login v-if="showExpressModal" @close="showExpressModal=false"></express-login>
     </div>
 
 </component>

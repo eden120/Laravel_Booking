@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\System\Models\Search;
 use App\Http\Requests\SearchRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
@@ -58,6 +59,46 @@ class SearchController extends Controller
         
         return back()->withErrors($api->errorsArray());
     }
+
+    public function getCC(Request $request)
+    {
+        $data = array(
+            'data' => array(
+//            'promo_code' => $request['code'],
+                'arrival_date' => $request['arrival_date'],
+                'return_date' => $request['return_date']
+            )
+        );
+        $ccId = $request['ccId'];
+        $api = $this->api();
+        if ( ! $request->session()->has('cart_id')) {
+            $api->createCart();
+        }
+        
+        $results = $api->searchReservationRates(['data' => $data]);
+        foreach ($results->data->rates as $item){
+            if ($item->rate_type == "Reservation" && $item->rate_group == "Prepay") {
+                $api->addItemToCart(['data' => $item]);
+
+                $data = array(
+                    'data' => array(
+                        'car_care_id' => $ccId
+                    )
+                );
+                $cart = $api->getCart();
+
+                $item = collect($cart->cart_items)->filter(function($item) {
+                    return $item;
+                })->last();
+
+                $api->addCareToCart($item->meta->cart_item_id, $data);
+
+            }
+
+        }
+
+        return response()->json(['success'], 200);
+    }
     
     
     private function prepareDate($request, $when = 'arrival')
@@ -66,4 +107,5 @@ class SearchController extends Controller
         $time = $request->input("{$when}Time") . ':00';
         return "$date $time";
     }
+
 }

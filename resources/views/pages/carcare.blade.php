@@ -8,6 +8,8 @@
     @include('elements.page_heading')
     @include('elements.page_title', ['page_title' => 'CAR CARE SERVICES'])
     @include('elements.sticky_header')
+    <div class="loading"  style="display: none">Loading&#8230;</div>
+
 
     <div id="page-wrapper">
 
