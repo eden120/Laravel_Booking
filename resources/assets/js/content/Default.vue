@@ -110,8 +110,8 @@
 
                 } else {
                     let code = $('input[name=promo_code]').val();
-                    let arrival_date = $('input[name=promo_code]').val();
-                    let return_date = $('input[name=promo_code]').val();
+                    let arrival_date = $('input[name=arrivalDate]').val()+' '+$('select[name=arrivalTime] option:selected').val();
+                    let return_date = $('input[name=returnDate]').val() +' '+$('select[name=returnTime] option:selected').val();
                     let CCID = $('input[name=carcareID]').val();
 
                         this.$http.post('/search/getCC', {code:code,arrival_date:arrival_date,return_date:return_date,ccId:CCID }).then((response) => {

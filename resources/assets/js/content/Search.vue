@@ -125,8 +125,11 @@
                             timer: 2500,
                             showConfirmButton: false
                         })
+
+                        window.location = '/cart';
                         this.showLoading = false
                         $('input[name=promoCode]').val('')
+
                     })
 
                 } else {

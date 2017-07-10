@@ -65,10 +65,11 @@ class SearchController extends Controller
         $data = array(
             'data' => array(
 //            'promo_code' => $request['code'],
-                'arrival_date' => $request['arrival_date'],
-                'return_date' => $request['return_date']
+                'arrival_date' => date("Y-m-d H:i", strtotime($request['arrival_date'])),
+                'return_date' => date("Y-m-d H:i", strtotime($request['return_date']))
             )
         );
+
         $ccId = $request['ccId'];
         $api = $this->api();
         if ( ! $request->session()->has('cart_id')) {

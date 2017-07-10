@@ -1,5 +1,11 @@
-<div id="cart-item-{!! $line->meta->cart_item_id !!}">
 
+<?php
+//echo "<pre>";
+//print_r($search."$$$$$$$$$$$$$$$");die;
+
+?>
+
+<div id="cart-item-{!! $line->meta->cart_item_id !!}">
     <div class="frame frame-cozy frame-margin-tight cart-item">
 
         <div class="cart-item-col-1">
@@ -24,12 +30,12 @@
             {!! $line->return_date !!}
         </div>
 
-        {{--<div class="cart-item-edit-col">--}}
-            {{--<a href="/cart/clean"><i class="fa fa-pencil"></i> Edit</a>--}}
-        {{--</div>--}}
+        <div class="cart-item-edit-col">
+            <a href="/cart/clean"><i class="fa fa-pencil"></i> Edit</a>
+        </div>
 
 
-        @if(! $search->prepaid)
+        @if(!$search->prepaid)
             <div class="cart-item-col-4 ">
                 <div class="cart-item-price">
                     ${!! $line->parking !!}

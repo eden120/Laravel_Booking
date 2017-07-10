@@ -1,3 +1,5 @@
+
+
 <div class="product-item span-4" data-vehicle="{{$plan->vehicle_size}}" data-type="{{$plan->vehicle_size}}">
     <div class="frame match-height" style="height: 542px;">
         <div class="product-item-graphic">
@@ -30,35 +32,22 @@
                 @endif
 
             </div>
+
             <div class="product-item-footing">
+
                 <div class="product-item-cart-action">
+
                     {{--<a href="#" @click.prevent="addCarCare({!! $plan->car_care_id !!})"--}}
                        {{--class="product-item-add-to-cart button button-solid button-success">--}}
                         {{--<i class="fa fa-plus"></i> Add to Cart</a>--}}
-                    <button type="button"   class="product-item-add-to-cart button button-solid button-success" data-ccid="{{$plan->car_care_id}}"> <i class="fa fa-plus"></i> Add to Cart</button>
+
+                    <button type="button"   class="product-item-add-to-cart button button-solid button-success" data-ccid="{{$plan->car_care_id}}">
+                        <i class="fa fa-plus"></i> Add to Cart</button>
+
+
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="modal fade" id="carCaremodal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div id="home-booking-form" class="date_modal">
-                    <div id="home-booking-form-inner">
-                        <input type="hidden" name="carcareID">
-                        <div id="home-booking-form-heading">
-                        </div>
-                        <div id="home-booking-form-wrap">
-                            @include('shared.basic_booking_form')
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 

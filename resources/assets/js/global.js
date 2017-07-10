@@ -42,7 +42,17 @@ $(document).ready(function() {
 
     $('.product-item-add-to-cart').on('click',function () {
         $('input[name=carcareID]').val($(this).data('ccid'));
-       $('#carCaremodal').modal();
+        var arrival_date = $('input[name=arrivalDate]').val();
+        var arrival_time = $('select[name=arrivalTime] option:selected').val();
+        var return_date = $('input[name=returnDate]').val();
+        var return_time = $('select[name=returnTime] option:selected').val();
+
+
+        if(arrival_date == '' || arrival_time == '' ||  return_date == '' ||  return_time == ''){
+            $('#carCaremodal').modal();
+        }else{
+            $('#bbf-submit-button').trigger('click');
+        }
     });
 
 });

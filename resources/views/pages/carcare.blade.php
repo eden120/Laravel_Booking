@@ -54,6 +54,25 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="carCaremodal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="home-booking-form" class="date_modal">
+                        <div id="home-booking-form-inner">
+                            <input type="hidden" name="carcareID">
+                            <div id="home-booking-form-heading">
+                            </div>
+                            <div id="home-booking-form-wrap">
+                                @include('shared.basic_booking_form')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 @stop
 
