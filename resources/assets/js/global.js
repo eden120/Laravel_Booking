@@ -41,14 +41,29 @@ $(document).ready(function() {
     });
 
     $('.product-item-add-to-cart').on('click',function () {
-        $('input[name=carcareID]').val($(this).data('ccid'));
+        var ccid = $(this).data('ccid');
+        $('input[name=carcareID]').val(ccid);
         var arrival_date = $('input[name=arrivalDate]').val();
         var arrival_time = $('select[name=arrivalTime] option:selected').val();
         var return_date = $('input[name=returnDate]').val();
         var return_time = $('select[name=returnTime] option:selected').val();
 
-
-        if(arrival_date == '' || arrival_time == '' ||  return_date == '' ||  return_time == ''){
+        var checkID = false;
+        $.ajax({
+            url: "/search/checkCCID",
+            method: 'POST',
+            data : { ccid : ccid, _token: $('meta[name="csrf_token"]').attr('content') },
+            dataType: "json",
+            async:false,
+            success: function(res){
+                for(var i=0; i<res.length;i++)
+                if (res[i] == ccid){
+                    checkID = true;
+                }
+            }
+        });
+        
+        if((arrival_date == '' || arrival_time == '' ||  return_date == '' ||  return_time == '') && !checkID){
             $('#carCaremodal').modal();
         }else{
             $('#bbf-submit-button').trigger('click');

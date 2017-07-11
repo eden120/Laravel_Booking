@@ -48,6 +48,7 @@ Route::resource('search', 'SearchController', ['only' => [
 ]]);
 
 Route::post('search/getCC', 'SearchController@getCC');
+Route::post('search/checkCCID', 'SearchController@checkCCID');
 
 
 Route::get('edit_reservation', ['as' => 'reservation.index', 'uses' => 'ReservationController@index']);

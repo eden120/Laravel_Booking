@@ -101,6 +101,20 @@ class SearchController extends Controller
         return response()->json(['success'], 200);
     }
     
+    public  function checkCCID(Request $request)
+    {
+        $ccId =  $request->ccid;
+        $api = $this->api();
+        $cart = $api->getCart();
+
+        foreach ($cart->cart_items as $cart_items){
+            $car_care_id[] = $cart_items->requested_services[0]->car_care_id;
+
+        }
+        echo  json_encode($car_care_id);
+        exit();
+    }
+    
     
     private function prepareDate($request, $when = 'arrival')
     {
