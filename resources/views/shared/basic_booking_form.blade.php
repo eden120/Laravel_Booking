@@ -39,5 +39,6 @@
     <div class="bbf-col-4">
         <button id="bbf-submit-button" @click.prevent='showLoader()'><i class="fa fa-long-arrow-right bbf-submit-button"></i> Search Rates</button>
     </div>
-
 </form>
+
+

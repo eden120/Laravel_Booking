@@ -109,14 +109,17 @@
             },
 
             showLoader() {
-                this.showLoading = true
+                this.showLoading = true;
 
-                let code = $('input[name=promoCode]').val()
+                $(".loading").css('display', 'block');
+                $('#carCaremodal').modal("hide");
+
+                //
+                let code = $('input[name=promo_code]').val();
 
                 if(code) {
-
                     this.$http.post('/promo', { code: code}).then((response) => {
-                        $('#basic-booking-form').submit();
+                        // $('#basic-booking-form').submit();
                     }, (response) => {
                         swal({
                             title: "Error!",
@@ -126,14 +129,46 @@
                             showConfirmButton: false
                         })
 
-                        window.location = '/cart';
-                        this.showLoading = false
-                        $('input[name=promoCode]').val('')
+                        $(".loading").css('display', 'none');
 
+                        this.showLoading = false
+                        $('input[name=promo_code]').val('')
                     })
 
                 } else {
-                    $('#basic-booking-form').submit();
+                    let code = $('input[name=promo_code]').val();
+                    let arrival_date = $('input[name=arrivalDate]').val();
+                    let arrivalTime = $('select[name=arrivalTime] option:selected').val();
+                    let return_date = $('input[name=returnDate]').val();
+                    let returnTime = $('select[name=returnTime] option:selected').val();
+                    let CCID = $('input[name=carcareID]').val();
+
+                    this.$http.post('/search/getCC', {arrivalTime:arrivalTime, returnTime:returnTime, code:code,arrival_date:arrival_date,return_date:return_date,ccId:CCID }).then((response) => {
+                        this.showLoading = false;
+
+                    $(".loading").css('display', 'none');
+                    swal({
+                        title: "Success!",
+                        text: "Parking added to your basket!",
+                        type: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    })
+
+                    window.location = '/cart';
+
+                }, (response) => {
+                        this.showLoading = false;
+
+                        $(".loading").css('display', 'none');
+                        swal({
+                            title: "Error!",
+                            text: "Sorry no any result!",
+                            type: "error",
+                            timer: 2500,
+                            showConfirmButton: false
+                        })
+                    })
                 }
 
             }

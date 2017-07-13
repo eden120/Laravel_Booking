@@ -37,7 +37,7 @@
                         showConfirmButton: false
                     })
 
-                    location.reload();
+                  location.reload();
 
                 }, (response) => {
                     swal({

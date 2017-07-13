@@ -66,7 +66,7 @@ class SearchController extends Controller
                 'arrival_date' => date("Y-m-d", strtotime($request['arrival_date'])),
                 'return_date' => date("Y-m-d", strtotime($request['return_date'])),
                 'arrivalTime' => date("H:i:s",strtotime($request['arrivalTime'])),
-                'returnTime' => date("h:i:s",strtotime($request['returnTime']))
+                'returnTime' => date("H:i:s",strtotime($request['returnTime']))
         );
 
         $search = Search::create([
@@ -97,28 +97,40 @@ class SearchController extends Controller
         }
         $results = $api->searchReservationRates(['data' => $search->toArray()]);
 
-//        $results = $api->searchReservationRates(['data' => $data]);
-
+        
         foreach ($results->data->rates as $item){
-            if ($item->rate_type == "Reservation" && $item->rate_group == "Prepay") {
-                $api->addItemToCart(['data' => $item]);
+            
+            $new_rate_id = $item->rate_id;
+            $cart = $api->getCart();
+            
+            foreach ($cart->cart_items as $cart_items){
+                $rate_id = $cart_items->rate_id;
+            }
 
+            if ($item->rate_type == "Reservation" && $item->rate_group == "Prepay"  ) {
+                
+                if (!isset($rate_id)){
+                    $api->addItemToCart(['data' => $item]);
+                }
+                elseif($rate_id != $new_rate_id){
+                    $api->addItemToCart(['data' => $item]);
+                }
+
+                
                 $data = array(
                     'data' => array(
                         'car_care_id' => $ccId
                     )
                 );
                 $cart = $api->getCart();
-
                 $item = collect($cart->cart_items)->filter(function($item) {
                     return $item;
                 })->last();
                 $api->addCareToCart($item->meta->cart_item_id, $data);
-
             }
-
+            
         }
-
+        
         return response()->json(['success'], 200);
     }
 
@@ -131,7 +143,6 @@ class SearchController extends Controller
 
         foreach ($cart->cart_items as $cart_items){
             $car_care_id[] = $cart_items->requested_services[0]->car_care_id;
-
         }
         echo  json_encode($car_care_id);
         exit();

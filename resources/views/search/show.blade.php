@@ -45,7 +45,7 @@
                 Surcharge</p>
         </div>
 
-        <div id="results-area-addons" v-if="services">
+        <div id="results-area-addons" v-show="services">
             <div class="container">
 
                 <div id="results-area-addons-heading">
@@ -73,8 +73,27 @@
                 </div>
 
 
-
             </div>
+            <div class="modal fade" id="carCaremodal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div id="home-booking-form" class="date_modal">
+                                <div id="home-booking-form-inner">
+                                    <input type="hidden" name="carcareID">
+                                    <div id="home-booking-form-heading">
+                                    </div>
+                                    <div id="home-booking-form-wrap">
+                                        @include('shared.basic_booking_form')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <div id="results-area-checkout" v-if="showCheckout">
@@ -101,6 +120,8 @@
 @section('footer_js')
 
     <script>
+
+
         var searchWidget = $('#searching-widget');
         var resultsArea = $('#results-area');
         var searchWidgetPhrase1 = $('.searching-widget-progress-phrase-1');

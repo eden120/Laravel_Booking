@@ -1,10 +1,3 @@
-
-<?php
-//echo "<pre>";
-//print_r($search);die;
-
-?>
-
 <div id="cart-item-{!! $line->meta->cart_item_id !!}">
     <div class="frame frame-cozy frame-margin-tight cart-item">
 
