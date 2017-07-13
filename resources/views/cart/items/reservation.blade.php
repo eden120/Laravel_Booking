@@ -1,7 +1,7 @@
 
 <?php
 //echo "<pre>";
-//print_r($search."$$$$$$$$$$$$$$$");die;
+//print_r($search);die;
 
 ?>
 
@@ -35,7 +35,7 @@
         </div>
 
 
-        @if(!$search->prepaid)
+        @if(isset($search) && !$search->prepaid)
             <div class="cart-item-col-4 ">
                 <div class="cart-item-price">
                     ${!! $line->parking !!}
@@ -74,8 +74,6 @@
                 <a href="#" @click.prevent="removeService({{  $line->meta->cart_item_id  }}, {{ $extra->car_care_id }})" class="cart-item-removal"><i class="fa fa-times"></i> Remove</a>
                 </div>
             </div>
-
         @endforeach
-
     @endif
 </div>

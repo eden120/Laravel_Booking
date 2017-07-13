@@ -41,7 +41,7 @@
                        {{--class="product-item-add-to-cart button button-solid button-success">--}}
                         {{--<i class="fa fa-plus"></i> Add to Cart</a>--}}
 
-                    <button type="button"   class="product-item-add-to-cart button button-solid button-success" data-ccid="{{$plan->car_care_id}}">
+                    <button type="button" class="product-item-add-to-cart button button-solid button-success" data-ccid="{{$plan->car_care_id}}">
                         <i class="fa fa-plus"></i> Add to Cart</button>
 
 

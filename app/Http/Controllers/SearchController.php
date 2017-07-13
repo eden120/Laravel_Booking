@@ -17,7 +17,7 @@ class SearchController extends Controller
             'promo_code' => $request->input('promo_code') ?: null,
             'prepaid' => $request->input('prepaid') ?: 0,
         ]);
-        
+
         session([
             'search' => $search->token,
             'arrivalDate' => $request->arrivalDate,
@@ -36,15 +36,13 @@ class SearchController extends Controller
     public function show($searchToken)
     {
         $search = Search::where('token', $searchToken)->firstOrFail();
-        
         $api = $this->api();
-        
+
         if ($search->prepaid) {
             $results = $api->reserveWithCoupon(['data' => $search->toArray()]);
         } else {
             $results = $api->searchReservationRates(['data' => $search->toArray()]);
         }
-        
         if ($results) {
             $search->results = json_encode($results->data->rates);
             $search->save();
@@ -60,23 +58,47 @@ class SearchController extends Controller
         return back()->withErrors($api->errorsArray());
     }
 
+    
     public function getCC(Request $request)
     {
         $data = array(
-            'data' => array(
-//            'promo_code' => $request['code'],
-                'arrival_date' => date("Y-m-d H:i", strtotime($request['arrival_date'])),
-                'return_date' => date("Y-m-d H:i", strtotime($request['return_date']))
-            )
+            'promo_code' => $request['promo_code'],
+                'arrival_date' => date("Y-m-d", strtotime($request['arrival_date'])),
+                'return_date' => date("Y-m-d", strtotime($request['return_date'])),
+                'arrivalTime' => date("H:i:s",strtotime($request['arrivalTime'])),
+                'returnTime' => date("h:i:s",strtotime($request['returnTime']))
         );
+
+        $search = Search::create([
+            'arrival_date'   => $data['arrival_date']. $data['arrivalTime'],
+            'return_date'    => $data['return_date']. $data['returnTime'],
+            'promo_code' => $request->input('promo_code') ?: null,
+            'prepaid' => $request->prepaid ?? 0
+        ]);
+
+        session([
+            'search' => $search->token,
+            'arrivalDate' => $data['arrival_date'],
+            'returnDate' => $data['return_date'],
+            'arrivalTime' =>  date("H:i",strtotime($request['arrivalTime'])),
+            'returnTime' => date("h:i",strtotime($request['returnTime'])),
+            'promo_code' => $search->promo_code,
+            'prepaid' => $search->prepaid ?? 0
+        ]);
+
+        Session::save();
+
+        $search = Search::where('token', $search->token)->firstOrFail();
 
         $ccId = $request['ccId'];
         $api = $this->api();
         if ( ! $request->session()->has('cart_id')) {
             $api->createCart();
         }
-        
-        $results = $api->searchReservationRates(['data' => $data]);
+        $results = $api->searchReservationRates(['data' => $search->toArray()]);
+
+//        $results = $api->searchReservationRates(['data' => $data]);
+
         foreach ($results->data->rates as $item){
             if ($item->rate_type == "Reservation" && $item->rate_group == "Prepay") {
                 $api->addItemToCart(['data' => $item]);
@@ -91,7 +113,6 @@ class SearchController extends Controller
                 $item = collect($cart->cart_items)->filter(function($item) {
                     return $item;
                 })->last();
-
                 $api->addCareToCart($item->meta->cart_item_id, $data);
 
             }
@@ -100,6 +121,7 @@ class SearchController extends Controller
 
         return response()->json(['success'], 200);
     }
+
     
     public  function checkCCID(Request $request)
     {

@@ -110,13 +110,15 @@
 
                 } else {
                     let code = $('input[name=promo_code]').val();
-                    let arrival_date = $('input[name=arrivalDate]').val()+' '+$('select[name=arrivalTime] option:selected').val();
-                    let return_date = $('input[name=returnDate]').val() +' '+$('select[name=returnTime] option:selected').val();
+                    let arrival_date = $('input[name=arrivalDate]').val();
+                    let arrivalTime = $('select[name=arrivalTime] option:selected').val();
+                    let return_date = $('input[name=returnDate]').val();
+                    let returnTime = $('select[name=returnTime] option:selected').val();
                     let CCID = $('input[name=carcareID]').val();
 
-                        this.$http.post('/search/getCC', {code:code,arrival_date:arrival_date,return_date:return_date,ccId:CCID }).then((response) => {
+                        this.$http.post('/search/getCC', {arrivalTime:arrivalTime, returnTime:returnTime, code:code,arrival_date:arrival_date,return_date:return_date,ccId:CCID }).then((response) => {
                             this.showLoading = false;
-        
+
                             $(".loading").css('display', 'none');
                             swal({
                                 title: "Success!",
@@ -127,7 +129,7 @@
                             })
 
                             window.location = '/cart';
-
+            
                     }, (response) => {
                         this.showLoading = false;
 

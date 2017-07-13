@@ -50,7 +50,7 @@ class CartController extends Controller
         $refund_policy = $api->getRefundPolicy();
         
         list($first_name, $last_name, $email, $phone, $zipcode, $address, $city, $state, $vehicles) = $this->userParams();
-    
+
         return view('cart.index', compact('cart', 'search', 'states', 'card_required', 'account', 'points',
             'refund_policy', 'first_name', 'last_name', 'email', 'phone', 'zipcode', 'address', 'city', 'state', 'vehicles'));
     }
